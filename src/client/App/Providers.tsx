@@ -10,7 +10,6 @@ export function Providers({
   children: JSX.Element | JSX.Element[];
   store: Store;
 }) {
-  console.log("store", store);
   return (
     <ShopProvider value={store.shop}>
       <MenuProvider value={store.menu}>{children}</MenuProvider>
