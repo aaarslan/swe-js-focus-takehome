@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "Node16",
+    "target": "es5",
+    "baseUrl": "../src",
+    "noEmit": true,
+    "paths": { "#cypress/*": ["../cypress/*"] },
+    "isolatedModules": false,
+    "moduleResolution": "node",
+    "types": ["cypress", "node"]
+  },
+  "include": ["**/*.ts"]
+}
