@@ -48,7 +48,7 @@
 - Form State Management: Utilized useState hooks for managing the selected menu item and the composition of the party size. This state management is crucial for handling the dynamic nature of the form, especially in response to user interactions.
 - Integration with Shop and Menu Data: Modified PartySize.ts to include methods that expose shop and menu data, which are critical for building the form logic. This integration ensures that the form is always in sync with the current data state and the backend constraints.
 - Challenges in Development: The development of PartySizeForm presented a complex challenge in managing various states and their interdependencies. Addressed these challenges by modularizing the component and isolating specific functionalities, such as incrementing/decrementing counters and handling form submission and reset events.
-- My one gripe is that I can't get the test's to pass 🥲 I have tried multiple iterations of the PartySizeForm and I can't find what I am doing wrong, it might be a knowledge gap on my part or something I have overlooked.
+- My one gripe is that I can't get the tests to pass 🥲 I have tried multiple iterations of the PartySizeForm and I can't find what I am doing wrong, it might be a knowledge gap on my part or something I have overlooked.
 
 ---
 
