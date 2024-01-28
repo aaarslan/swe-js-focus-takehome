@@ -88,10 +88,11 @@ export class OASClientFromSpec {
     return properties;
   }
 
+  // Comments added by LLM
   buildClientMethodDefinition(schema: PropertyKind[]): FunctionExpressionKind {
     return b.functionExpression(
       null,
-      [b.identifier("producer")],
+      [b.identifier("producer")], // Keep the producer parameter, but it will be treated as optional.
       b.blockStatement([
         b.variableDeclaration("const", [
           b.variableDeclarator(
@@ -101,16 +102,26 @@ export class OASClientFromSpec {
             ])
           ),
         ]),
-        b.variableDeclaration("const", [
-          b.variableDeclarator(
-            b.identifier("result"),
-            b.callExpression(b.identifier("produce"), [
-              b.identifier("faked"),
-              b.identifier("producer"),
-            ])
-          ),
-        ]),
-        b.returnStatement(b.identifier("result")),
+        b.ifStatement(
+          b.identifier("producer"), // Check if producer is provided.
+          b.blockStatement([
+            // If producer is provided, use it to modify 'faked'.
+            b.variableDeclaration("const", [
+              b.variableDeclarator(
+                b.identifier("result"),
+                b.callExpression(b.identifier("produce"), [
+                  b.identifier("faked"),
+                  b.identifier("producer"),
+                ])
+              ),
+            ]),
+            b.returnStatement(b.identifier("result")),
+          ]),
+          b.blockStatement([
+            // If producer is not provided, return 'faked' directly.
+            b.returnStatement(b.identifier("faked")),
+          ])
+        ),
       ])
     );
   }

@@ -49,3 +49,9 @@
 - Integration with Shop and Menu Data: Modified PartySize.ts to include methods that expose shop and menu data, which are critical for building the form logic. This integration ensures that the form is always in sync with the current data state and the backend constraints.
 - Challenges in Development: The development of PartySizeForm presented a complex challenge in managing various states and their interdependencies. Addressed these challenges by modularizing the component and isolating specific functionalities, such as incrementing/decrementing counters and handling form submission and reset events.
 - My one gripe is that I can't get the test's to pass 🥲 I have tried multiple iterations of the PartySizeForm and I can't find what I am doing wrong, it might be a knowledge gap on my part or something I have overlooked.
+
+---
+
+## Task 3
+
+- This was an interesting task, I utilized the power of LLM's for this task. I first searched for the `OasClientFromSpec` and found the class. I then reviewed it and found that `import { builders as b } from "ast-types";` was being heavily utilized throughout the page, so I checked the documentation on ast-types and added both the file and documentation into the LLM with the required task.
