@@ -1,5 +1,3 @@
-<!--  This file was part of my first actual commit -->
-
 # TableCheck Handover
 
 ## Notes:
@@ -33,3 +31,21 @@
 - In conclusion, the issue was a combination of inconsistent ID synchronization between server and client, and a minor but significant oversight in the handling of potentially undefined properties in the useController.tsx. Correcting these ensured that the application could correctly render the "welcome to {{test}}" message and pass the e2e test without modifying the test itself.
 
 ---
+
+## Task two
+
+- Creating a form component that has built in validation that validates against data from api to ensure to properly be able to submit.
+- Important considerations:
+  - Adult selector always shown by default
+  - min can never be greater than max
+  - min can never be 0 or -infinity and defaults to 1
+  - max can never be +infinity and defaults to 10
+  - menu can be isGroupOrder (boolean) has min/max order requirments that supercedes party requirements
+- A console.log(partySize) in components/PartySizeList.tsx reveals the shop and menu data that is required to build our form component, I will build a seperate component in the components folder called PartySizeForm, import it into PartySizeList.tsx, have it consume the partySize prop to properly display the correct dynamic form.
+- Dynamic Form with Built-in Validation: Developed the PartySizeForm to incorporate dynamic validation based on the API data. This ensures that any submission aligns with the data constraints, making the form both reliable and robust.
+- Age Group Selectors and Validation: Incorporated logic where the adult selector is always visible, reflecting the mandatory inclusion of at least one adult in the party. Carefully implemented validation to ensure that the minimum number is always realistic (at least 1, avoiding negative or zero values) and that the maximum is capped at a sensible limit (defaulted to 10, avoiding excessively large numbers).
+- Group Order Handling: Added functionality to account for menu items marked as isGroupOrder, which possess unique minimum and maximum order requirements. These requirements override the general party size constraints, ensuring the form adheres to specific menu item rules.
+- Form State Management: Utilized useState hooks for managing the selected menu item and the composition of the party size. This state management is crucial for handling the dynamic nature of the form, especially in response to user interactions.
+- Integration with Shop and Menu Data: Modified PartySize.ts to include methods that expose shop and menu data, which are critical for building the form logic. This integration ensures that the form is always in sync with the current data state and the backend constraints.
+- Challenges in Development: The development of PartySizeForm presented a complex challenge in managing various states and their interdependencies. Addressed these challenges by modularizing the component and isolating specific functionalities, such as incrementing/decrementing counters and handling form submission and reset events.
+- My one gripe is that I can't get the test's to pass 🥲 I have tried multiple iterations of the PartySizeForm and I can't find what I am doing wrong, it might be a knowledge gap on my part or something I have overlooked.

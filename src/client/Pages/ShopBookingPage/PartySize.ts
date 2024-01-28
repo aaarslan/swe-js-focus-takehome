@@ -9,4 +9,12 @@ export class PartySize {
     this.shop = shop;
     this.menu = menu;
   }
+
+  public getShop(): Shop {
+    return this.shop;
+  }
+
+  public getMenu(): MenuItem[] {
+    return this.menu;
+  }
 }
